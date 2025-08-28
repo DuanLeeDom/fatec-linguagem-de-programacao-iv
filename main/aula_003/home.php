@@ -18,7 +18,18 @@ if (!isset($_SESSION['usuario'])) {
 <body>
     <a href="logout.php">Sair</a>
 
-    <h2>Bem-vindo(a), <?php echo htmlspecialchars($_SESSION['usuario'], ENT_QUOTES, 'UTF-8'); ?>!</h2>
-    <p>Nível de acesso: <?php echo htmlspecialchars($_SESSION['nivel'], ENT_QUOTES, 'UTF-8'); ?></p>
+    <?php
+        echo $_SESSION["usuario"], "<br>";
+        echo $_SESSION["nivel"], "<br>";
+
+        // TESTE DE ARMAZENAMENTO DE VETOR EM SESSÃO
+        $vetor['valor'] = 526.00;
+        $vetor['data'] = "mesa";
+        $vetor['qtd'] = 30;
+        
+        // CORREÇÃO: Armazenar o vetor na sessão
+        $_SESSION['vetor'] = $vetor;
+    ?>
+    <a href="vetor.php">Vetor</a>
 </body>
 </html>
